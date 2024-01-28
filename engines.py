@@ -10,8 +10,10 @@ def info(msg):
 
 class ContentEngine(object):
 
+
+
     SIMKEY = 'p:smlr:%s'
-    def _init_(self):
+    def __init__(self):
         self._r = redis.StrictRedis.from_url(current_app.config['REDIS_URL'])
 
     def train(self, data_source):
@@ -22,7 +24,7 @@ class ContentEngine(object):
 
         self._r.flushdb()
         start = time.time()
-        self._train(ds  
+        self._train(ds)  
         info("Engine trained in %s seconds." % (time.time() - start))
     
 
