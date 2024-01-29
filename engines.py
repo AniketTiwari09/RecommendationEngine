@@ -74,11 +74,7 @@ class ContentEngine(object):
         by similarity score, descending.
         """
 
-        return self._r.zrange(self.SIMKEY % item_id,
-                              0,
-                              num-1,
-                              withscores=True,
-                              desc=True)
+        return self._r.zrange(self.SIMKEY % item_id,  0,  num-1, withscores=True, desc=True)
 
 content_engine = ContentEngine()
 
